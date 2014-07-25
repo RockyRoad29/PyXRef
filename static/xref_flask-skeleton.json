@@ -1,0 +1,67 @@
+{
+    "default_settings": [],
+    "runserver": [],
+    "shell": [],
+    "skeleton.__init__": [],
+    "skeleton.filters.__init__": [],
+    "skeleton.lib": [],
+    "skeleton.models.__init__": [
+        "skeleton.models.timezone.Timezone"
+    ],
+    "skeleton.models.timezone": [],
+    "skeleton.modules.aaa.__init__": [],
+    "skeleton.modules.aaa.forms": [],
+    "skeleton.modules.aaa.models.__init__": [
+        "skeleton.modules.aaa.models.email.Email",
+        "skeleton.modules.aaa.models.user.User",
+        "skeleton.modules.aaa.models.user_emails.UserEmails",
+        "skeleton.modules.aaa.models.user_info.UserInfo"
+    ],
+    "skeleton.modules.aaa.models.email": [],
+    "skeleton.modules.aaa.models.user": [],
+    "skeleton.modules.aaa.models.user_emails": [],
+    "skeleton.modules.aaa.models.user_info": [],
+    "skeleton.modules.aaa.user": [
+        "skeleton.modules.aaa.models.user_info.UserInfo"
+    ],
+    "skeleton.modules.aaa.views": [
+        "skeleton.lib.fixup_destination_url",
+        "skeleton.lib.local_request",
+        "skeleton.modules.aaa.forms.LoginForm",
+        "skeleton.modules.aaa.forms.ProfileForm",
+        "skeleton.modules.aaa.forms.RegisterForm",
+        "skeleton.modules.aaa.user.get_user_id"
+    ],
+    "skeleton.modules.home.__init__": [],
+    "skeleton.modules.home.models.__init__": [
+        "skeleton.modules.home.models.h1.H1",
+        "skeleton.modules.home.models.h3.H3"
+    ],
+    "skeleton.modules.home.models.h1": [],
+    "skeleton.modules.home.models.h3": [],
+    "skeleton.modules.home.views": [],
+    "skeleton.modules.mod1.__init__": [],
+    "skeleton.modules.mod1.models.__init__": [
+        "skeleton.modules.mod1.models.h2.H2"
+    ],
+    "skeleton.modules.mod1.models.h2": [],
+    "skeleton.modules.mod1.views": [],
+    "skeleton.modules.mod2.__init__": [],
+    "skeleton.modules.mod2.views": [],
+    "skeleton.modules.mod3.__init__": [],
+    "skeleton.modules.mod3.forms": [],
+    "skeleton.modules.mod3.models.__init__": [
+        "skeleton.modules.mod3.models.page_tags.PageTags",
+        "skeleton.modules.mod3.models.page.Page",
+        "skeleton.modules.mod3.models.tag.Tag"
+    ],
+    "skeleton.modules.mod3.models.page": [
+        "skeleton.modules.mod3.models.page_tags.PageTags"
+    ],
+    "skeleton.modules.mod3.models.page_tags": [],
+    "skeleton.modules.mod3.models.tag": [],
+    "skeleton.modules.mod3.views": [
+        "skeleton.modules.mod3.forms.PageAddTagForm",
+        "skeleton.modules.mod3.forms.PageSubmitForm"
+    ]
+}

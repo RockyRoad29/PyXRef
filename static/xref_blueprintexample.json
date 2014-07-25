@@ -1,0 +1,9 @@
+{
+    "blueprintexample": [
+        "simple_page.simple_page.simple_page"
+    ],
+    "blueprintexample_test": [
+        "blueprintexample"
+    ],
+    "simple_page.simple_page": []
+}
