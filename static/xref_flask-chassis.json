@@ -1,0 +1,23 @@
+{
+    "chassis.__init__": [
+        "chassis.views.CatAPI",
+        "chassis.views.api",
+        "chassis.views.cache",
+        "chassis.models.db"
+    ],
+    "chassis.models": [],
+    "chassis.views": [
+        "chassis.models.Cat"
+    ],
+    "factories": [
+        "chassis.models.db"
+    ],
+    "manage": [
+        "factories"
+    ],
+    "runserver": [],
+    "tests": [
+        "chassis.models.db",
+        "factories"
+    ]
+}

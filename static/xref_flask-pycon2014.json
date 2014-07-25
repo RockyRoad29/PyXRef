@@ -1,0 +1,44 @@
+{
+    "app.__init__": [
+        "config.config",
+        "app.emails.start_email_thread"
+    ],
+    "app.api_1_0.__init__": [
+        "app.models.User"
+    ],
+    "app.api_1_0.comments": [
+        "app.models.Comment",
+        "app.emails.send_comment_notification",
+        "app.api_1_0.errors.forbidden",
+        "app.api_1_0.errors.bad_request"
+    ],
+    "app.api_1_0.errors": [],
+    "app.auth.__init__": [],
+    "app.auth.forms": [],
+    "app.auth.routes": [
+        "app.models.User",
+        "app.auth.forms.LoginForm"
+    ],
+    "app.emails": [
+        "app.models.PendingEmail"
+    ],
+    "app.models": [],
+    "app.talks.__init__": [],
+    "app.talks.forms": [],
+    "app.talks.routes": [
+        "app.models.User",
+        "app.models.Talk",
+        "app.models.Comment",
+        "app.models.PendingEmail",
+        "app.emails.send_author_notification",
+        "app.emails.send_comment_notification",
+        "app.talks.forms.ProfileForm",
+        "app.talks.forms.TalkForm",
+        "app.talks.forms.CommentForm",
+        "app.talks.forms.PresenterCommentForm"
+    ],
+    "config": [],
+    "manage": [
+        "app.models.User"
+    ]
+}

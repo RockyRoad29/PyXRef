@@ -348,52 +348,21 @@ if __name__ == '__main__':
 
     logging.basicConfig(level=logging.DEBUG, format=('[%(lineno)d]%(levelname)s: %(message)s'))
 
-    project_set = [
-        dict(
-            project_name='flask-pycon2014',
-            project_root='/home/mich/Learn/webauth/flask/flask-pycon2014',
-            module_sources=['manage.py', 'config.py', 'app']),
-        dict(
-            project_name='flask-kit',
-            project_root='/home/mich/Learn/webauth/flask/flask-kit',
-            module_sources=[
-                'app.py',
-                'ext.py',
-                'helpers.py',
-                'manage.py',
-                'settings.py',
-                'testing.py',
-                'base', 'info', 'flaskr']),
-        dict(
-            project_name='flask-chassis',
-            project_root='/home/mich/Learn/webauth/flask/flask-chassis/src/',
-            module_sources=[
-                'runserver.py',
-                'manage.py',
-                'tests.py',
-                'factories.py',
-                'chassis',
-            ]),
-        dict(
-            project_name='blueprintexample',
-            project_root='/usr/local/src/flask/examples/blueprintexample/',
-            module_sources=[
-                'blueprintexample.py',
-                'blueprintexample_test.py',
-                'simple_page',
-            ]),
-        dict(
-            project_name='flask-skeleton',
-            project_root='/home/mich/Learn/webauth/flask/flask-skeleton/',
-            module_sources=[
-                'default_settings.py',
-                'runserver.py',
-                'shell.py',
-                'skeleton',
-            ]),
-    ]
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-r', '--project_root', help='Project root directory', default=os.curdir)
+    parser.add_argument('-n', '--project_name', help='Project name (for reports)')
+    parser.add_argument('sources', metavar='module_or_dir', nargs='+', help='Modules and directories file list')
+    args = parser.parse_args()
 
-    for proj in project_set:
-        reports_dir = os.path.realpath('tools/static')
-        assert(os.path.isdir(reports_dir), 'directory not found: ' + reports_dir)
-        run(reports_dir=reports_dir, **proj)
+    assert os.path.isdir(args.project_root)
+    args.project_root = os.path.realpath(args.project_root)
+    if not args.project_name:
+        args.project_name = os.path.basename(args.project_root)
+    logging.info('arguments: %r', args)
+
+    # We put reports in static directory where the css and js reside.
+    reports_dir =  os.path.realpath(os.path.join(os.path.dirname(__file__), 'static'))
+    assert(os.path.isdir(reports_dir), 'Reports directory not found: ' + reports_dir)
+    run(reports_dir=reports_dir, project_root=args.project_root, project_name=args.project_name,
+        module_sources=args.sources)

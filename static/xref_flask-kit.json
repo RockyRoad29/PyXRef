@@ -1,0 +1,37 @@
+{
+    "app": [
+        "helpers.AppFactory",
+        "settings.DevelopmentConfig",
+        "ext.assets"
+    ],
+    "base.__init__": [],
+    "base.context_processors": [
+        "ext.gravatar"
+    ],
+    "base.forms": [],
+    "base.models": [
+        "ext.db"
+    ],
+    "base.tests": [
+        "testing.KitTestCase"
+    ],
+    "base.views": [
+        "ext.login_manager",
+        "base.forms.LoginForm",
+        "base.models.User"
+    ],
+    "ext": [],
+    "helpers": [],
+    "info.__init__": [],
+    "info.views": [],
+    "manage": [
+        "app.app",
+        "ext.db"
+    ],
+    "settings": [],
+    "testing": [
+        "helpers.AppFactory",
+        "settings.TestingConfig",
+        "ext.db"
+    ]
+}
