@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+
+{% block title %}Quick XRef report{% endblock %}
+
+{% block css %}
+    {{ super() }}
+    {#    rotate top headers to save space #}
+{#    <link rel="stylesheet" type="text/css" href="rotate-th-2.css">#}
+    <link rel="stylesheet" type="text/css" href="xref.css">
+    {# Highlight column and line on hover  #}
+{#    <link rel="stylesheet" type="text/css" href="lesson8.css">#}
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+{% endblock %}
+{% block js_head %}
+    {{ super() }}
+    <script src="xref.js"/>
+    <script type="text/javascript">
+
+    </script>
+{% endblock %}
+
+{% block js_foot %}
+    <script type="text/javascript">//<![CDATA[
+$(function(){
+$('table.hover-grid td').mouseover(function () {
+    $(this).siblings().addClass('hover-grid');
+    var ind = $(this).index();
+    $('td:nth-child(' + (ind + 1) + ')').addClass('hover-grid');
+});
+$('table.hover-grid td').mouseleave(function () {
+    $(this).siblings().removeClass('hover-grid');
+    var ind = $(this).index();
+    $('td:nth-child(' + (ind + 1) + ')').removeClass('hover-grid');
+});
+// http://lesson8.blogspot.com
+});//]]>
+
+</script>
+{% endblock %}
+{% block body %}
+
+    <h1>Quick Xref report</h1>
+    <dl>
+    <dt>Project root</dt>
+    <dd>{{ project_root }}</dd>
+    </dl>
+{#    <table class="table table-hover table-striped tg-table-light    ">#}
+    <table class="table table-bordered hover-grid rotate-th">
+        <thead>
+        <tr>
+            <th>Modules</th>
+            {% for src in data.headers %}
+                <th class="rotate-45"><span><span><span>{{ src }}</span></span></span></th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for target, row in zip(data.headers[1:], data.table) %}
+            <tr>
+                <th>{{ target }}</th>
+                {% for cell in row %}
+                    <td class="ref">
+                    {% for ref in cell %}
+                        <span title="{{ ref.fullname }}" class="glyphicon glyphicon-link"></span>
+                    {% endfor %}
+                    </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
